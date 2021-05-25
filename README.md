@@ -1,32 +1,31 @@
-# React 
+# React
 
-##### Create a react app that:
+## Create a react app that
+
 1. Takes a question from a form
-2. Displays it as a card 
+2. Displays it as a card
 3. If there were no questions yet display `<h1>Loading cards...</h1>`
 
+### Use two components
 
-
-##### Use two components: 
 - `<Cards />` which takes all the cards as a prop from your App.js
 - `<Card />` which is called by Cards.js
 
-## End Result 
+## End Result
+
 ![result1](src/images/result1.png)
 ![result2](src/images/result2.png)
 
-## App.js 
+## App.js
 
 ```js
-import React, { Component } from 'react';
-import Card from './Card'
-import Cards from './Cards'
-import './App.css';
+import React, { Component } from "react";
+import Card from "./Card";
+import Cards from "./Cards";
+import "./App.css";
 
 class App extends Component {
-
   render() {
-
     return (
       <section id="add-card" className="container">
         <div className="row">
@@ -39,60 +38,58 @@ class App extends Component {
               placeholder="Type a question here!"
               value={this.state.question}
               onChange={(e) => this.handleChange(e)}
-               />
-            <input type="submit" className="btn-submit" value="Submit" onClick={(e) => this.handleSubmit(e)} />
+            />
+            <input
+              type="submit"
+              className="btn-submit"
+              value="Submit"
+              onClick={(e) => this.handleSubmit(e)}
+            />
           </form>
         </div>
-        <Cards cards={this.state.cards} />        
+        <Cards cards={this.state.cards} />
       </section>
-    )
+    );
   }
 }
 
 export default App;
-
 ```
 
 ## Card.js
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Card extends Component {
-    render() {
-        return (
-            <div className="card">
-                <h4 className={'card-title'}></h4>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="card">
+        <h4 className={"card-title"}></h4>
+      </div>
+    );
+  }
 }
 ```
 
 ## Cards.js
 
 ```js
-import React, { Component } from 'react'
-import Card from './Card.js'
+import React, { Component } from "react";
+import Card from "./Card.js";
 
 export default class Cards extends Component {
-    render() {
-
-        return (
-            <div className="row">
-                {allCards}
-            </div>
-        )
-    }
+  render() {
+    return <div className="row">{allCards}</div>;
+  }
 }
 ```
-
 
 ## index.css
 
 ```css
 body {
-background: #EEE9E9;
+  background: #eee9e9;
 }
 
 .container {
@@ -104,20 +101,20 @@ background: #EEE9E9;
 }
 
 h1 {
-font-size: xx-large;
+  font-size: xx-large;
 }
 
 .question {
-margin: 1rem 0;
-height: 3rem;
-width: 80%;
-text-align: center;
-font-size: x-large;
+  margin: 1rem 0;
+  height: 3rem;
+  width: 80%;
+  text-align: center;
+  font-size: x-large;
 }
 
 .btn-submit {
-height: 3rem;
-padding: 0 5rem;
+  height: 3rem;
+  padding: 0 5rem;
 }
 
 .row {
@@ -160,5 +157,4 @@ padding: 0 5rem;
 .card:hover {
   cursor: pointer;
 }
-
 ```
